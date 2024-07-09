@@ -17,8 +17,21 @@ public class NewInterviewProblems
 		List<Integer> list = Arrays.asList(1, 66, 88, 99, 100);
 		secondLargestNumber(list);
 
+		// 3:
 		String str = "000012345";
 		removeZeros(str);
+
+		// 4:
+		String newStr = "I love java";
+		splitUsingStream(newStr);
+
+		// 5:
+		List<Integer> ints = Arrays.asList(44, 66, 88, 99, 100);
+		findMaximum(ints);
+
+		// 6:
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+		filterEvensThenSquare(numbers);
 	}
 
 	private static void manipulateString(String input)
@@ -65,5 +78,28 @@ public class NewInterviewProblems
 
 		List<String> listWithoutZeros = map.get(false);
 		System.out.println(listWithoutZeros.stream().collect(Collectors.joining())); // output : 12345
+	}
+
+	private static void splitUsingStream(String newStr)
+	{
+		Arrays.stream(newStr.split(" ")).forEach(System.out::println); // output: I \n love \n java
+	}
+
+	private static void findMaximum(List<Integer> ints)
+	{
+		int max = ints.stream()
+				.max(Integer::compareTo)
+				.get();
+		System.out.println("Max number: " + max); // output: 100
+	}
+
+	private static void filterEvensThenSquare(List<Integer> numbers)
+	{
+		List<Integer> evensSquared = numbers.stream()
+				.filter(num -> num % 2 == 0)
+				.map(ele -> ele * ele)
+				.toList();
+
+		System.out.println(evensSquared); // output: [4, 16, 36, 64]
 	}
 }

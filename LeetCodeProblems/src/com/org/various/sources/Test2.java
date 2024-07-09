@@ -8,11 +8,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
-import java.util.Vector;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -96,9 +95,22 @@ public class Test2
 		System.out.println("Current EST Time: " + estTime);
 		System.out.println("Current EST Time without miliseconds: " + estTimeWithoutMS);
 
-		Vector v = new Stack();
+		/*Vector v = new Stack();
 		v.add(2, "");
+		
+		System.out.println(v);*/
 
-		System.out.println(v);
+		Map<String, String> techTable = new HashMap<>();
+		techTable.put("A", "Angular");
+		techTable.put("J", "Java");
+		techTable.put("P", "Python");
+		techTable.put("H", "Hibernate");
+
+		for(Map.Entry<String, String> set : techTable.entrySet())
+		{
+			System.out.println(set.getKey() + " = "
+					+ set.getValue());
+			techTable.put("D", "DOTNET");
+		}
 	}
 }
