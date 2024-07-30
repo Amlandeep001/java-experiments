@@ -11,7 +11,7 @@ public class SortMapWithStream
 	public static void main(String[] args)
 	{
 		Map<String, Integer> hashMap = new HashMap<>();
-		hashMap.put("Amlan", 35);
+		hashMap.put("Akash", 35);
 		hashMap.put("Gaurav", 30);
 		hashMap.put("Rajesh", 29);
 		hashMap.put("Amit", 34);

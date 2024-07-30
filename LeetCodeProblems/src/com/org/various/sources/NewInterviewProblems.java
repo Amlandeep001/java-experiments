@@ -1,6 +1,7 @@
 package com.org.various.sources;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,6 +33,13 @@ public class NewInterviewProblems
 		// 6:
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
 		filterEvensThenSquare(numbers);
+
+		// 7:
+		List<List<String>> listOfLists = Arrays.asList(
+				Arrays.asList("a", "b", "c"),
+				Arrays.asList("d", "e", "f"),
+				Arrays.asList("g", "h", "i"));
+		convertIntoSingleList(listOfLists);
 	}
 
 	private static void manipulateString(String input)
@@ -62,7 +70,7 @@ public class NewInterviewProblems
 	private static void secondLargestNumber(List<Integer> list)
 	{
 		int secondLargest = list.stream()
-				.sorted()
+				.sorted(Comparator.reverseOrder())
 				.skip(1)
 				.findFirst()
 				.get();
@@ -101,5 +109,12 @@ public class NewInterviewProblems
 				.toList();
 
 		System.out.println(evensSquared); // output: [4, 16, 36, 64]
+	}
+
+	private static List<String> convertIntoSingleList(List<List<String>> listOfLists)
+	{
+		return listOfLists.stream()
+				.flatMap(List::stream)
+				.collect(Collectors.toList());
 	}
 }
