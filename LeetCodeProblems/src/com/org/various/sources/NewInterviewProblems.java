@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class NewInterviewProblems
 {
@@ -40,6 +41,12 @@ public class NewInterviewProblems
 				Arrays.asList("d", "e", "f"),
 				Arrays.asList("g", "h", "i"));
 		convertIntoSingleList(listOfLists);
+
+		// 8:
+		List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
+		List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
+		List<Integer> list3 = Arrays.asList(9, 10, 11, 12);
+		concatIntoSingleList(list1, list2, list3);
 	}
 
 	private static void manipulateString(String input)
@@ -111,10 +118,20 @@ public class NewInterviewProblems
 		System.out.println(evensSquared); // output: [4, 16, 36, 64]
 	}
 
-	private static List<String> convertIntoSingleList(List<List<String>> listOfLists)
+	private static void convertIntoSingleList(List<List<String>> listOfLists)
 	{
-		return listOfLists.stream()
+		List<String> strings = listOfLists.stream()
 				.flatMap(List::stream)
 				.collect(Collectors.toList());
+
+		System.out.println(strings);
+	}
+
+	private static void concatIntoSingleList(List<Integer> list1, List<Integer> list2, List<Integer> list3)
+	{
+		List<Integer> list = Stream.concat(Stream.concat(list1.stream(), list2.stream()), list3.stream())
+				.collect(Collectors.toList());
+
+		System.out.println(list);
 	}
 }
