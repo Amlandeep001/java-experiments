@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -47,6 +48,15 @@ public class NewInterviewProblems
 		List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
 		List<Integer> list3 = Arrays.asList(9, 10, 11, 12);
 		concatIntoSingleList(list1, list2, list3);
+
+		// 9:
+		int[] arr = {1, 2, 3, 2, 1};
+		removeDuplicates(arr);
+
+		// 10:
+		String[] strArr = {"java ruby struts", "spring java spring", "spring python"};
+		String s = "spring";
+		countOfString(strArr, s);
 	}
 
 	private static void manipulateString(String input)
@@ -124,7 +134,7 @@ public class NewInterviewProblems
 				.flatMap(List::stream)
 				.collect(Collectors.toList());
 
-		System.out.println(strings);
+		System.out.println(strings); // output: ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
 	}
 
 	private static void concatIntoSingleList(List<Integer> list1, List<Integer> list2, List<Integer> list3)
@@ -132,6 +142,30 @@ public class NewInterviewProblems
 		List<Integer> list = Stream.concat(Stream.concat(list1.stream(), list2.stream()), list3.stream())
 				.collect(Collectors.toList());
 
-		System.out.println(list);
+		System.out.println(list); // output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	}
+
+	private static void removeDuplicates(int[] arr)
+	{
+		int[] uniques = Arrays.stream(arr)
+				.boxed()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.stream()
+				.filter(entry -> entry.getValue() == 1)
+				.map(a -> a.getKey())
+				.mapToInt(Integer::intValue)
+				.toArray();
+		System.out.println(Arrays.toString(uniques)); // output: 3
+	}
+
+	private static void countOfString(String[] strArr, String s)
+	{
+		long count = Arrays.stream(strArr)
+				.map(x -> x.split(" "))
+				.flatMap(x -> Arrays.stream(x))
+				.filter(x -> x.equals(s))
+				.count();
+		System.out.println(count); // output: 3
 	}
 }
