@@ -3,6 +3,7 @@ package com.org.codingninjas;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//https://www.naukri.com/code360/problems/search-in-the-array_1116099?kunjiRedirection=true
 public class SearchInTheArray
 {
 	public static void main(String[] args)
