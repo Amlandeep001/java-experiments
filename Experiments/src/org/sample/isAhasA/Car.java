@@ -1,6 +1,7 @@
 package org.sample.isAhasA;
 
-public class Car {
+public class Car
+{
 	  
     // Instance members of class Car
     private String color;

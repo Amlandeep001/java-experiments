@@ -3,8 +3,10 @@ package org.sample.searching;
 import java.util.Arrays;
 import java.util.List;
 
-public class LinearSearch {
-	public static void main(String[] args) {
+public class LinearSearch
+{
+	public static void main(String[] args)
+	{
 		
 		int n=5;
 		int x=12;

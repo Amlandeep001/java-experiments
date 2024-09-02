@@ -1,9 +1,10 @@
 package org.sample.isAhasA;
 
-class Maserati extends Car {
+class Maserati extends Car
+{
 	  
     // Method in which it is shown
-    // what happened with the engine of Puslar
+    // what happened with the engine of Pulsar
     public void MaseratiStartDemo()
     {
         // Creating an object of Engine type
