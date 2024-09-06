@@ -23,13 +23,6 @@
 hs_err_pid*
 replay_pid*
 !/.idea/
-.idea/java-experiments.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/jpa-buddy.xml
-.idea/workspace.xml
+.idea
 *.prefs
-LeetCodeProblems/.settings/org.eclipse.jdt.core.prefs
-/LeetCodeProblems
-/LeetCodeProblems/.settings
+
