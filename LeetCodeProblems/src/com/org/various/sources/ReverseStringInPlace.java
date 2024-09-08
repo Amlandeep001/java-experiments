@@ -2,17 +2,17 @@ package com.org.various.sources;
 
 public class ReverseStringInPlace
 {
-	public static void main(String[] args)
-	{
-		String s = "ABCD";
+    public static void main(String[] args)
+    {
+        String s = "ABCD";
 
-		char[] ch = s.toCharArray();
-		System.out.println(ch);
+        char[] ch = s.toCharArray();
+        System.out.println(ch);
 
-		int left = 0;
-		int right = ch.length - 1;
+        int left = 0;
+        int right = ch.length - 1;
 
-		while (left < right)
+		/*while (left < right)
 		{
 			char temp = ch[left];
 			ch[left] = ch[right];
@@ -20,9 +20,20 @@ public class ReverseStringInPlace
 
 			left++;
 			right--;
-		}
+		}*/
 
-		System.out.println(ch);
-	}
+        // Without using temp variable
+        while (left < right)
+        {
+            ch[left] ^= ch[right];
+            ch[right] ^= ch[left];
+            ch[left] ^= ch[right];
+
+            left++;
+            right--;
+        }
+
+        System.out.println(ch);
+    }
 
 }
