@@ -1,10 +1,8 @@
 package com.org.various.sources;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -87,11 +85,13 @@ public class NewInterviewProblems
 	private static void secondLargestNumber(List<Integer> list)
 	{
 		int secondLargest = list.stream()
-				.sorted(Comparator.reverseOrder())
+				// .sorted(Comparator.reverseOrder())
+				// .sorted((a, b) -> b.compareTo(a))
+				.sorted((a, b) -> b - a)
 				.skip(1)
 				.findFirst()
 				.get();
-		System.out.println(secondLargest); // output : 99
+		System.out.println("Second Largest: " + secondLargest); // output : 99
 	}
 
 	private static void removeZeros(String str)
@@ -147,7 +147,7 @@ public class NewInterviewProblems
 
 	private static void removeDuplicates(int[] arr)
 	{
-		int[] uniques = Arrays.stream(arr)
+		/*int[] uniques = Arrays.stream(arr)
 				.boxed()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 				.entrySet()
@@ -155,8 +155,12 @@ public class NewInterviewProblems
 				.filter(entry -> entry.getValue() == 1)
 				.map(a -> a.getKey())
 				.mapToInt(Integer::intValue)
+				.toArray();*/
+		int[] uniques = Arrays.stream(arr)
+				.distinct()
 				.toArray();
-		System.out.println(Arrays.toString(uniques)); // output: 3
+
+		System.out.println("Unique Array: " + Arrays.toString(uniques)); // output: 3
 	}
 
 	private static void countOfString(String[] strArr, String s)
