@@ -1,4 +1,4 @@
-package com.org.preparation;
+package com.org.codingninjas;
 
 import java.util.Scanner;
 
