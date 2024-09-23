@@ -3,6 +3,7 @@ package com.org.various.sources;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -55,6 +56,10 @@ public class NewInterviewProblems
 		String[] strArr = {"java ruby struts", "spring java spring", "spring python"};
 		String s = "spring";
 		countOfString(strArr, s);
+
+		// 11:
+		String company = "BNYMELLON";
+		findFrequencyOfN(company);
 	}
 
 	private static void manipulateString(String input)
@@ -171,5 +176,19 @@ public class NewInterviewProblems
 				.filter(x -> x.equals(s))
 				.count();
 		System.out.println(count); // output: 3
+	}
+
+	private static void findFrequencyOfN(String company)
+	{
+		long frequencyOfN = company.chars()
+				.mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.stream()
+				.filter(entry -> entry.getKey() == 'N')
+				.map(Map.Entry::getValue)
+				.findFirst()
+				.orElse(0L);
+		System.out.println("Frequency of 'N': " + frequencyOfN); // output : 1
 	}
 }
