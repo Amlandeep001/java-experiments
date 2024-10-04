@@ -2,6 +2,10 @@ package com.org.expriments.singleton;
 
 import java.io.Serializable;
 
+/**
+ * Implementing the thread-safe Singleton which will restrict the pattern breaking from Reflection, Serialization & Cloning.  
+ */
+
 public class SingleTon implements Serializable, Cloneable
 {
 	private static final long serialVersionUID = 3561009919119642904L;

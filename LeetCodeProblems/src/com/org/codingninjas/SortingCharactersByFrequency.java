@@ -1,9 +1,7 @@
 package com.org.codingninjas;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -47,16 +45,18 @@ public class SortingCharactersByFrequency
 
 		List<String> list = Arrays.asList(s.split(""));
 
-		Map<String, Long> frequencyMap = list.stream()
+		return list.stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 				.entrySet()
 				.stream()
 				.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-						(e1, e2) -> e1, LinkedHashMap::new));
+				/*.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+						(e1, e2) -> e1, LinkedHashMap::new));*/
+				.map(entry -> entry.getKey().repeat(Long.valueOf(entry.getValue()).intValue()))
+				.collect(Collectors.joining());
 
-		List<String> sorted = new ArrayList<>(frequencyMap.keySet());
-
+		/*List<String> sorted = new ArrayList<>(frequencyMap.keySet());
+		
 		StringBuilder res = new StringBuilder();
 		for(String str : sorted)
 		{
@@ -66,7 +66,7 @@ public class SortingCharactersByFrequency
 				res.append(str);
 			}
 		}
-		return res.toString();
+		return res.toString();*/
 	}
 
 	public static void main(String[] args)
