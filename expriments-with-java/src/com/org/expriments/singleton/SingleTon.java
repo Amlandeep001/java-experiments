@@ -21,11 +21,12 @@ public class SingleTon implements Serializable, Cloneable
 	}
 
 	public static SingleTon getInstance()
-	{ // double locking will ensure of thread safety
+	{
 		if(singleTon == null)
 		{
 			synchronized(SingleTon.class)
 			{
+				// double locking will ensure of thread safety
 				if(singleTon == null)
 				{
 					singleTon = new SingleTon();
