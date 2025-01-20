@@ -2,6 +2,7 @@ package com.org.expriments.immutable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class RunImmutable
@@ -16,5 +17,10 @@ public class RunImmutable
 		ic.getDob().setYear(2045);
 
 		System.out.println(ic.getDob());
+
+		Person person = new Person("Amlan", 36, new Address("Wallington Street", "Wellington", "Florida", Arrays.asList("Reading", "Writing", "Gaming")));
+		person.getAddress().setState("Taxas");
+
+		System.out.println(person.getAddress());
 	}
 }

@@ -1,20 +1,19 @@
 package com.org.expriments.immutable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 //https://medium.com/javarevisited/immutable-class-in-java-88c50030f153
 public final class Person
 {
 	private final String name;
 	private final int age;
-	private final List<String> hobbies;
+	private final Address address;
 
-	public Person(String name, int age, List<String> hobbies)
+	public Person(String name, int age, Address address)
 	{
 		this.name = name;
 		this.age = age;
-		this.hobbies = new ArrayList<>(hobbies);
+		this.address = new Address(address.getStreet(), address.getCity(), address.getState(), new ArrayList<>(address.getHobbies()));
 	}
 
 	public String getName()
@@ -27,8 +26,8 @@ public final class Person
 		return age;
 	}
 
-	public List<String> getHobbies()
+	public Address getAddress()
 	{
-		return new ArrayList<>(hobbies);
+		return new Address(address.getStreet(), address.getCity(), address.getState(), new ArrayList<>(address.getHobbies()));
 	}
 }

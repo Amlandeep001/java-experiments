@@ -1,4 +1,4 @@
-package org.sample;
+package org.sample.threads;
 
 //Main Class
 public class MultiThread

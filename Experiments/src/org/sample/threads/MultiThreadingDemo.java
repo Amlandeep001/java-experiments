@@ -1,4 +1,4 @@
-package org.sample;
+package org.sample.threads;
 
 //Java code for thread creation by extending
 //the Thread class
