@@ -6,7 +6,6 @@ import java.util.Locale;
 
 public class CalculateDay
 {
-
 	public static void main(String[] args)
 	{
 		LocalDate date = LocalDate.of(2015, 10, 15);
