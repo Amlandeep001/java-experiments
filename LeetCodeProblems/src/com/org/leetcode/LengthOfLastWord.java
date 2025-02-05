@@ -1,5 +1,6 @@
 package com.org.leetcode;
 
+//https://leetcode.com/problems/length-of-last-word/description/
 public class LengthOfLastWord
 {
     public static void main(String[] args)

@@ -1,15 +1,13 @@
 package com.org.leetcode;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 //https://leetcode.com/problems/contains-duplicate/description/
 public class ContainsDuplicate
 {
-	public static boolean containsDuplicate(int[] nums)
-	{
-		Set<Integer> set = new HashSet<>();
+    public static boolean containsDuplicate(int[] nums)
+    {
+		/*Set<Integer> set = new HashSet<>();
 		int[] newNums = Arrays.stream(nums)
 				.filter(a -> !set.add(a))
 				.toArray();
@@ -21,12 +19,16 @@ public class ContainsDuplicate
 		else
 		{
 			return true;
-		}
-	}
+		}*/
 
-	public static void main(String[] args)
-	{
-		int[] nums = {1, 2, 3, 1};
-		System.out.println(ContainsDuplicate.containsDuplicate(nums));
-	}
+        int length = Arrays.stream(nums).distinct().toArray().length;
+
+        return length != nums.length;
+    }
+
+    public static void main(String[] args)
+    {
+        int[] nums = {1, 2, 3};
+        System.out.println(containsDuplicate(nums));
+    }
 }
