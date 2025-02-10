@@ -15,6 +15,6 @@ public class WordCount
 	public static void main(String[] args)
 	{
 		String s = "I am a boy";
-		System.out.println(WordCount.countWords(s));
+		System.out.println(countWords(s));
 	}
 }
