@@ -1,4 +1,4 @@
-package com.org.geeksforgeeks;
+package com.org.leetcode;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-//https://www.geeksforgeeks.org/find-k-numbers-occurrences-given-array/
+//https://leetcode.com/problems/top-k-frequent-elements/description/
 public class TopKElementsArray
 {
 	public static int[] topK(int[] nums, int k)
