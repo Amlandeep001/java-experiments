@@ -148,6 +148,14 @@ public class NewInterviewProblems
 				.collect(Collectors.toList());
 
 		System.out.println(list); // output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+		// OR
+
+		List<Integer> ints = Stream.of(list1, list2, list3)
+				.flatMap(List::stream)
+				.collect(Collectors.toList());
+
+		System.out.println(ints);
 	}
 
 	private static void removeDuplicates(int[] arr)
