@@ -11,6 +11,7 @@ public class SortMapWithStream
 	public static void main(String[] args)
 	{
 		Map<String, Integer> hashMap = new HashMap<>();
+
 		hashMap.put("Akash", 35);
 		hashMap.put("Gaurav", 30);
 		hashMap.put("Rajesh", 29);
@@ -21,7 +22,8 @@ public class SortMapWithStream
 		System.out.println("Employee Map Unsorted: " + hashMap);
 
 		Map<String, Integer> sortedMap = hashMap.entrySet().stream()
-				.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+				// .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+				.sorted(Comparator.comparingInt(Map.Entry<String, Integer>::getValue).reversed())
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
 						(e1, e2) -> e1, LinkedHashMap::new));
 
