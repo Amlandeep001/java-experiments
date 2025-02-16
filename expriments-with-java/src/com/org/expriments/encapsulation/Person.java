@@ -3,8 +3,8 @@ package com.org.expriments.encapsulation;
 class Person
 {
 	// Encapsulating the name and age
-	// only approachable and used using
-	// methods defined
+	// only approachable and used applying
+	// the methods defined
 	private String name;
 	private int age;
 
