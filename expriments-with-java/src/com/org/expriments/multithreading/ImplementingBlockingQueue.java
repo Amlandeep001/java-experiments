@@ -11,10 +11,34 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class ImplementingBlockingQueue
 {
-	// Unbounded Blocking Queue
-	BlockingQueue<String> blockingQueueUnbounded = new LinkedBlockingDeque<>(); // The Capacity of blockingQueue will be set to Integer.MAX_VALUE
+	public static void main(String[] args)
+	{
+		// Unbounded Blocking Queue
+		BlockingQueue<String> blockingQueueUnbounded = new LinkedBlockingDeque<>(); // The Capacity of blockingQueue will be set to Integer.MAX_VALUE
 
-	// Bounded Blocking Queue
-	BlockingQueue<String> blockingQueueBounded = new LinkedBlockingDeque<>(10);
+		System.out.println(blockingQueueUnbounded.size());
+
+		// Bounded Blocking Queue
+		BlockingQueue<Integer> blockingQueueBounded = new LinkedBlockingDeque<>(10);
+
+		blockingQueueBounded.add(1);
+		blockingQueueBounded.add(2);
+		blockingQueueBounded.add(3);
+		blockingQueueBounded.add(4);
+		blockingQueueBounded.add(5);
+		System.out.println(blockingQueueBounded);
+
+		blockingQueueBounded.remove();
+		System.out.println(blockingQueueBounded);
+
+		blockingQueueBounded.offer(6);
+		System.out.println(blockingQueueBounded);
+
+		blockingQueueBounded.poll();
+		System.out.println(blockingQueueBounded);
+
+		blockingQueueBounded.clear();
+		System.out.println(blockingQueueBounded);
+	}
 
 }
