@@ -21,10 +21,12 @@ public class ReverseVowlesInString
 			if(!vowels.contains(ch[i]))
 			{
 				i++;
+				continue;
 			}
 			else if(!vowels.contains(ch[j]))
 			{
 				j--;
+				continue;
 			}
 			else
 			{
