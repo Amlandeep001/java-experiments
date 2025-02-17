@@ -4,7 +4,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class TestCountDownLatch
 {
@@ -16,9 +15,9 @@ public class TestCountDownLatch
 		executorService.submit(new DependentService(latch));
 		executorService.submit(new DependentService(latch));
 		executorService.submit(new DependentService(latch));
-		latch.await(5, TimeUnit.SECONDS); // will wait for other 3 tasks to get finished
+		latch.await(); // main has to wait for other 3 tasks to get finished
 		System.out.println("Main");
-		executorService.shutdown(); // call shutdownNow() to stop the above 3 worker threads once main thread completes its execution
+		executorService.shutdown(); // call shutdownNow() to stop the above 3 worker threads(before execution) once main thread completes its execution
 	}
 }
 
@@ -36,8 +35,8 @@ class DependentService implements Callable<String>
 	{
 		try
 		{
-			Thread.sleep(6000);
 			System.out.println(Thread.currentThread().getName() + " service started.");
+			Thread.sleep(2000);
 		}
 		finally
 		{
