@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 public class WordCount
 {
-
 	public static void main(String[] args)
 	{
 		List<String> names = List.of("Ram", "Sam", "Jadu", "Madhu", "Ram", "Sam", "Ram", "Jadu");

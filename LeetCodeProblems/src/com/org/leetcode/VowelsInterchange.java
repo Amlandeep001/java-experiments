@@ -3,6 +3,10 @@ package com.org.leetcode;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Amlan
+ * Link: https://leetcode.com/problems/reverse-vowels-of-a-string/
+ */
 public class VowelsInterchange
 {
 	public String reverseVowels(String s)

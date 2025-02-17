@@ -3,9 +3,11 @@ package com.org.codingninjas;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Link: https://www.naukri.com/code360/problems/reverse-vowels-in-a-string_1231000?interviewProblemRedirection=true&search=Reverse%20&attempt_status=COMPLETED
+ */
 public class ReverseVowlesInString
 {
-
 	public static String reverseVowels(String s)
 	{
 		List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
@@ -19,12 +21,10 @@ public class ReverseVowlesInString
 			if(!vowels.contains(ch[i]))
 			{
 				i++;
-				continue;
 			}
 			else if(!vowels.contains(ch[j]))
 			{
 				j--;
-				continue;
 			}
 			else
 			{

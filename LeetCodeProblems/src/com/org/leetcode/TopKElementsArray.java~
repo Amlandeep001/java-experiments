@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 //https://leetcode.com/problems/top-k-frequent-elements/description/
 public class TopKElementsArray
 {
-	public static int[] topK(int[] nums, int k)
-	{
+    public static int[] topK(int[] nums, int k)
+    {
 		/*List<Integer> arl = new ArrayList<Integer>();
 		for(int i : nums)
 		{
@@ -28,24 +28,24 @@ public class TopKElementsArray
 		
 		return new int[0];*/
 
-		return Arrays.stream(nums)
-				.boxed()
-				.collect(Collectors.groupingBy(
-						Function.identity(), Collectors.counting()))
-				.entrySet()
-				.stream()
-				.sorted(Entry.comparingByValue(
-						Comparator.reverseOrder()))
-				.map(Entry::getKey)
-				.limit(k)
-				.mapToInt(Integer::intValue)
-				.toArray();
-	}
+        return Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.groupingBy(
+                        Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .sorted(Entry.comparingByValue(
+                        Comparator.reverseOrder()))
+                .map(entry -> entry.getKey())
+                .limit(k)
+                .mapToInt(Integer::intValue)
+                .toArray();
+    }
 
-	public static void main(String[] args)
-	{
-		int[] arr = {1, 1, 1, 2, 2, 3};
-		System.out.println(Arrays.toString(topK(arr, 2)));
-	}
+    public static void main(String[] args)
+    {
+        int[] arr = {1, 1, 1, 2, 2, 3};
+        System.out.println(Arrays.toString(topK(arr, 2)));
+    }
 
 }

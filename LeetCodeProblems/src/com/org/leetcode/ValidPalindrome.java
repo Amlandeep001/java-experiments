@@ -1,27 +1,30 @@
 package com.org.leetcode;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * @author Amlan
  * Link: https://leetcode.com/problems/valid-palindrome/submissions
  */
 public class ValidPalindrome
 {
-    public boolean isPalindrome(String s)
-    {
-        List<String> list = Arrays.asList(s.split(""));
+	public boolean isPalindrome(String s)
+	{
+		/*List<String> list = Arrays.asList(s.split(""));
+		
+		String ts = list.stream()
+		        .map(e -> e.toLowerCase())
+		        .filter(a -> a.chars().allMatch(Character::isLetterOrDigit))
+		        .collect(Collectors.joining());
+		
+		StringBuilder sb = new StringBuilder(ts).reverse();
+		
+		return sb.toString().equals(ts);*/
 
-        String ts = list.stream()
-                .map(e -> e.toLowerCase())
-                .filter(a -> a.chars().allMatch(Character::isLetterOrDigit))
-                .collect(Collectors.joining());
+		String test = s.toLowerCase();
+		test = test.replaceAll("[^a-zA-Z0-9]", "");
 
-        StringBuilder sb = new StringBuilder(ts).reverse();
+		StringBuilder sb = new StringBuilder(test).reverse();
 
-        return sb.toString().equals(ts);
-    }
+		return sb.toString().equals(test);
+	}
 
 }
