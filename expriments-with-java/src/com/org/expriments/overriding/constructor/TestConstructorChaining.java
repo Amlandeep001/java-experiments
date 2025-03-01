@@ -1,6 +1,6 @@
 package com.org.expriments.overriding.constructor;
 
-public class Main
+public class TestConstructorChaining
 {
 	public static void main(String[] args)
 	{
