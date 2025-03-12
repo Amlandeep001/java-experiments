@@ -33,8 +33,8 @@ public class StreamOperations
 
         // get only employee names whose Salary > 50k and code commits > 70k
 
-        Predicate<Employee> employeesWithSalaryGreaterThan50K = e -> e.getSalary() > 50000;
-        Predicate<Employee> employeesWithCommitsGreaterThan70K = e -> e.getCodeCommits() > 70000;
+        Predicate<Employee> employeesWithSalaryGreaterThan50K = employee -> employee.getSalary() > 50000;
+        Predicate<Employee> employeesWithCommitsGreaterThan70K = employee -> employee.getCodeCommits() > 70000;
 
         Predicate<Employee> combined = employeesWithSalaryGreaterThan50K.and(employeesWithCommitsGreaterThan70K);
 
