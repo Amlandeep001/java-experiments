@@ -1,6 +1,7 @@
 package com.org.various.sources;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -206,14 +207,21 @@ public class NewInterviewProblems
 
 	private static void findRepeatedCharacters(String word)
 	{
-		Character[] repeatedChars = word.chars()
+		/*Character[] repeatedChars = word.chars()
 				.mapToObj(c -> (char) c)
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 				.entrySet()
 				.stream()
 				.filter(entry -> entry.getValue() > 1)
 				.map(Map.Entry::getKey)
-				.toArray(Character[]::new);
+				.toArray(Character[]::new);*/
+
+		List<String> characters = Arrays.asList(word.split(""));
+
+		String[] repeatedChars = characters.stream()
+				.filter(c -> Collections.frequency(characters, c) > 1)
+				.distinct()
+				.toArray(String[]::new);
 
 		System.out.println("Repeated Characters: " + Arrays.toString(repeatedChars)); // output : [r, g, m]
 	}

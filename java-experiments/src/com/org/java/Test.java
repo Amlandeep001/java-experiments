@@ -100,5 +100,10 @@ public class Test
 				.mapToInt(Integer::intValue)
 				.sum();
 		System.out.println(total);
+
+		///////////////////////////////////
+
+		System.out.println(0.1 * 2 == 0.2);
+		System.out.println(0.1 * 3 == 0.3);
 	}
 }
