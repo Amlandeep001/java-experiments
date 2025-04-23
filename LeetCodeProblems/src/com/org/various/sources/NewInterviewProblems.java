@@ -60,6 +60,10 @@ public class NewInterviewProblems
 		// 11:
 		String company = "BNYMELLON";
 		findFrequencyOfN(company);
+
+		// 12:
+		String word = "programming";
+		findRepeatedCharacters(word);
 	}
 
 	private static void manipulateString(String input)
@@ -198,5 +202,19 @@ public class NewInterviewProblems
 				.findFirst()
 				.orElse(0L);
 		System.out.println("Frequency of 'N': " + frequencyOfN); // output : 1
+	}
+
+	private static void findRepeatedCharacters(String word)
+	{
+		Character[] repeatedChars = word.chars()
+				.mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.stream()
+				.filter(entry -> entry.getValue() > 1)
+				.map(Map.Entry::getKey)
+				.toArray(Character[]::new);
+
+		System.out.println("Repeated Characters: " + Arrays.toString(repeatedChars)); // output : [r, g, m]
 	}
 }
