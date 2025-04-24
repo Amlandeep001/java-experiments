@@ -10,6 +10,13 @@ public final class ImmutableClass
 
 	private final Date dob;
 
+	public ImmutableClass(int id, String name, Date dob)
+	{
+		this.id = id;
+		this.name = name;
+		this.dob = new Date(dob.getYear(), dob.getMonth(), dob.getDay());
+	}
+
 	public int getId()
 	{
 		return id;
@@ -23,13 +30,6 @@ public final class ImmutableClass
 	public Date getDob()
 	{
 		return new Date(dob.getYear(), dob.getMonth(), dob.getDay());
-	}
-
-	public ImmutableClass(int id, String name, Date dob)
-	{
-		this.id = id;
-		this.name = name;
-		this.dob = new Date(dob.getYear(), dob.getMonth(), dob.getDay());
 	}
 
 }
