@@ -2,7 +2,7 @@ package com.org.java;
 
 import java.text.NumberFormat;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -73,10 +73,16 @@ public class Test
 						(oldValue, newValue) -> oldValue, LinkedHashMap::new));
 		System.out.println("sorted map by key: " + sortedMap);
 
-		Map<String, Long> sortedMapByValue = itemsMap.entrySet().stream()
+		/*Map<String, Long> sortedMapByValue = itemsMap.entrySet().stream()
 				.sorted(Comparator.comparing(Map.Entry::getValue))
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+						(e1, e2) -> e1, LinkedHashMap::new));*/
+
+		Map<String, Long> sortedMapByValue = itemsMap.entrySet().stream()
+				.sorted(Entry.comparingByValue(Collections.reverseOrder()))
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue,
 						(e1, e2) -> e1, LinkedHashMap::new));
+
 		System.out.println("sorted map by value: " + sortedMapByValue);
 
 		// Alternatively

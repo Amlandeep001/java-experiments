@@ -14,7 +14,9 @@ public class NewInterviewProblems
 	{
 		// 1:
 		String input = "AABBAAC";
-		manipulateString(input);
+		manipulateString(input); // output: A2B2A2C1
+
+		manipulateString2(input); // output: A4B2C1
 
 		// 2:
 		List<Integer> list = Arrays.asList(1, 66, 88, 99, 100);
@@ -65,6 +67,19 @@ public class NewInterviewProblems
 		// 12:
 		String word = "programming";
 		findRepeatedCharacters(word);
+	}
+
+	private static void manipulateString2(String input)
+	{
+		List<String> strings = Arrays.asList(input.split(""));
+
+		String result = strings.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.stream()
+				.map(entry -> entry.getKey() + entry.getValue())
+				.collect(Collectors.joining());
+		System.out.println("Result: " + result);
 	}
 
 	private static void manipulateString(String input)

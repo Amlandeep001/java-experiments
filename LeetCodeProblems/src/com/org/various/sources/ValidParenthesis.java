@@ -10,7 +10,7 @@ public class ValidParenthesis
 
 		for(Character c : str.toCharArray())
 		{
-			if(c == '(')
+			/*if(c == '(')
 			{
 				stack.push(c);
 			}
@@ -24,6 +24,14 @@ public class ValidParenthesis
 			else
 			{
 				return false; // any other invalid character
+			}*/
+			if(c == '(')
+			{
+				stack.push(')');
+			}
+			else if(stack.isEmpty() || stack.pop() != c)
+			{
+				return false;
 			}
 		}
 
