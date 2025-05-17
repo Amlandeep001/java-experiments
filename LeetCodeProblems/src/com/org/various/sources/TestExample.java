@@ -38,6 +38,13 @@ public class TestExample
 
 		System.out.println(second);
 
+		int highest = ints.stream()
+				.distinct()
+				.max(Comparator.naturalOrder())
+				.orElseThrow(() -> new RuntimeException("number not present"));
+
+		System.out.println(highest);
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		List<String> words = Arrays.asList("tower", "power", "shower");
@@ -59,6 +66,22 @@ public class TestExample
 		}
 
 		System.out.println(sb.reverse().toString());
+
+		/////////////////////////////////////////////////////////////////////////////////////
+
+		String abc = "committee";
+
+		/*List<String> list = Arrays.asList(abc.split(""));
+		
+		Map<String, Long> mapCount = list.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		
+		mapCount.forEach((k, v) -> System.out.println(k + " : " + v));*/
+
+		abc.chars()
+				.mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.forEach((k, v) -> System.out.println(k + " : " + v));
 	}
 
 }
