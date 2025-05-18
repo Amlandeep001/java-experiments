@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+//https://www.naukri.com/code360/problems/reverse-string-word-wise_624402?leftPanelTabValue=PROBLEM&count=25&page=1&search=&sort_entity=order&sort_order=ASC&customSource=studio_nav
+
 public class ReverseStringWordWise
 {
 	static String reverseStringWordWise(String input)

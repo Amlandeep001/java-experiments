@@ -77,7 +77,7 @@ public class TestExample
 				.distinct()
 				.toList();
 
-		System.out.println(dups);
+		System.out.println("Duplicates: " + dups);
 
 		/////////////////////////////////////////////////////////////////////////////////////
 
