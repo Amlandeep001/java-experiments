@@ -79,6 +79,13 @@ public class StreamOperations
 
 		System.out.println("Department wise maximum salaried employee : " + deptEmployees);
 
+		Map<Integer, Optional<Employee>> deptWiseMaxSalariedEmployees = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDeptNo,
+						Collectors.maxBy(
+								Comparator.comparingDouble(Employee::getSalary))));
+
+		System.out.println("Department wise maximum salaried employee : " + deptWiseMaxSalariedEmployees);
+
 		// Department wise 3rd highest salary
 
 		Map<Integer, Double> deptWise3rdHighestSalary = employees.stream()
