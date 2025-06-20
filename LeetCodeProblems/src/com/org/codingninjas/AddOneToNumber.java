@@ -3,6 +3,7 @@ package com.org.codingninjas;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//https://www.naukri.com/code360/problems/add-one-to-number_873367?interviewProblemRedirection=true&leftPanelTabValue=PROBLEM&count=25&search=add%20&sort_entity=order&sort_order=ASC&customSource=studio_nav&page=1&difficulty%5B%5D=Easy
 public class AddOneToNumber
 {
 	public static ArrayList<Integer> addOneToNumber(ArrayList<Integer> arr)
