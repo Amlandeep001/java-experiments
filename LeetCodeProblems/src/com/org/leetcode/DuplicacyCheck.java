@@ -1,5 +1,7 @@
 package com.org.leetcode;
 
+//https://leetcode.com/problems/contains-duplicate-ii/description/
+
 public class DuplicacyCheck
 {
 	public boolean containsNearbyDuplicate(int[] nums, int k)
