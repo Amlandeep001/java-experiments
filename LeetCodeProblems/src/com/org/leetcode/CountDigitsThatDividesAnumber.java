@@ -1,7 +1,6 @@
 package com.org.leetcode;
 
 //https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
-
 public class CountDigitsThatDividesAnumber
 {
 	public static int countDigits(int num)
