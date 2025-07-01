@@ -40,7 +40,7 @@ public class PracticeQuestions
 
 		Map<Character, Long> map = Arrays.stream(names)
 				.collect(Collectors.groupingBy(s -> s.charAt(0), Collectors.counting()));
-		System.out.println("Max element: " + map);
+		System.out.println("Map of names count: " + map);
 
 		// 4. Find and print duplicate numbers in an array if it contains multiple duplicates?
 
@@ -60,9 +60,9 @@ public class PracticeQuestions
 		List<String> strings = List.of("level", "hello", "radar", "world", "deed");
 
 		List<String> palindromes = strings.stream()
-				.filter(string -> string.equals(new StringBuilder(string).reverse().toString()))
+				.filter(string -> string.contentEquals(new StringBuilder(string).reverse()))
 				.toList();
-		System.out.println("Plaindromes found: " + palindromes);
+		System.out.println("Palindromes found: " + palindromes);
 
 		// 6. How do you merge two sorted arrays into a single sorted array?
 
@@ -102,8 +102,8 @@ public class PracticeQuestions
 
 class Student
 {
-	private String name;
-	private int marks;
+	private final String name;
+	private final int marks;
 
 	public Student(String name, int marks)
 	{

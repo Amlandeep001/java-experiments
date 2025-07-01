@@ -3,6 +3,7 @@ package com.org.various.sources;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -17,13 +18,25 @@ public class TestExample
 	{
 		List<String> fruits = Arrays.asList("apple", "banana");
 
-		/*Map<String, Integer> map = fruits.stream()
-				.collect(Collectors.toMap(Function.identity(), String::length));*/
-
 		Map<String, Integer> map = fruits.stream()
-				.collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(String::length)));
+				.collect(Collectors.toMap(Function.identity(), String::length));
+
+		/*Map<String, Integer> map = fruits.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(String::length)));*/
 
 		System.out.println(map);
+
+		List<String> freshFruits = Arrays.asList("apple", "banana", "apple", "banana", "banana", "orange", "kiwi");
+
+		/*Map<String, Integer> fruitsMap = freshFruits.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(String::length)));*/
+
+		Map<String, Integer> newMap = freshFruits.stream()
+				.collect(Collectors.toMap(Function.identity(), String::length, (e1, e2) -> e1, LinkedHashMap::new));
+
+		// System.out.println(fruitsMap);
+
+		System.out.println(newMap);
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,7 +79,7 @@ public class TestExample
 			sb.append(min.charAt(i));
 		}
 
-		System.out.println(sb.reverse().toString());
+		System.out.println(sb.reverse());
 
 		/////////////////////////////////////////////////////////////////////////////////////
 
