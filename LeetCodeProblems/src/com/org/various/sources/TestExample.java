@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,20 @@ public class TestExample
 				.orElseThrow(() -> new RuntimeException("number not present"));
 
 		System.out.println(second);
+
+		// Without using sorted() method
+
+		int thirdMax = ints.stream()
+				.distinct()
+				.collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.reverseOrder())))
+				.stream()
+				.skip(2)
+				.findFirst()
+				.orElseThrow(() -> new RuntimeException("number not present"));
+
+		System.out.println(thirdMax);
+
+		// Maximum number
 
 		int highest = ints.stream()
 				.distinct()

@@ -11,28 +11,36 @@ public class EmployeeJava8
 	public static void main(String[] args)
 	{
 		List<Employee> employees = new ArrayList<>();
-		employees.add(new Employee(12345, "Akbar", 100, 45000.00));
-		employees.add(new Employee(12346, "Amit", 100, 30000.00));
-		employees.add(new Employee(12347, "Taufiq", 200, 65000.00));
-		employees.add(new Employee(12348, "Raja", 200, 55000.00));
-		employees.add(new Employee(12349, "Akash", 300, 64000.00));
-		employees.add(new Employee(12350, "Rakesh", 300, 47000.00));
-		employees.add(new Employee(12351, "Rachid", 300, 52000.00));
-		employees.add(new Employee(12351, "Remit", 200, 57000.00));
-		employees.add(new Employee(12351, "Ronit", 100, 59000.00));
-		employees.add(new Employee(12351, "Amar", 100, 42000.00));
-		employees.add(new Employee(12351, "David", 200, 62000.00));
-		employees.add(new Employee(12351, "Rahim", 300, 72000.00));
-		employees.add(new Employee(12351, "Abir", 300, 46000.00));
+		employees.add(new Employee(12345, "Akbar", "HR", 45000.00));
+		employees.add(new Employee(12346, "Amit", "HR", 30000.00));
+		employees.add(new Employee(12347, "Taufiq", "IT", 65000.00));
+		employees.add(new Employee(12348, "Raja", "IT", 55000.00));
+		employees.add(new Employee(12349, "Akash", "Sales", 64000.00));
+		employees.add(new Employee(12350, "Rakesh", "Sales", 47000.00));
+		employees.add(new Employee(12351, "Rachid", "Sales", 52000.00));
+		employees.add(new Employee(12352, "Remit", "IT", 57000.00));
+		employees.add(new Employee(12353, "Ronit", "HR", 59000.00));
+		employees.add(new Employee(12354, "Amar", "HR", 42000.00));
+		employees.add(new Employee(12355, "David", "IT", 62000.00));
+		employees.add(new Employee(12356, "Rahim", "Sales", 72000.00));
+		employees.add(new Employee(12357, "Abir", "Sales", 46000.00));
 
 		// Department wise max salary
 
-		Map<Integer, Double> deptWiseMaxSalary = employees.stream()
-				.collect(Collectors.groupingBy(Employee::getDeptNo,
+		Map<String, Double> deptWiseMaxSalary = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDeptName,
 						Collectors.collectingAndThen(Collectors.maxBy(
 								Comparator.comparingDouble(Employee::getSalary)), emp -> emp.get().getSalary())));
 
 		System.out.println("Department wise max salary: " + deptWiseMaxSalary);
+
+		// Department wise Students' names
+
+		Map<String, List<String>> deptWiseNames = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDeptName,
+						Collectors.mapping(Employee::getName, Collectors.toList())));
+
+		System.out.println("Department wise Students' names: " + deptWiseNames);
 	}
 }
 
@@ -40,14 +48,14 @@ class Employee
 {
 	private Integer id;
 	private String name;
-	private Integer deptNo;
+	private String deptName;
 	private Double salary;
 
-	public Employee(Integer id, String name, Integer deptNo, Double salary)
+	public Employee(Integer id, String name, String deptName, Double salary)
 	{
 		this.id = id;
 		this.name = name;
-		this.deptNo = deptNo;
+		this.deptName = deptName;
 		this.salary = salary;
 	}
 
@@ -71,14 +79,14 @@ class Employee
 		this.name = name;
 	}
 
-	public Integer getDeptNo()
+	public String getDeptName()
 	{
-		return deptNo;
+		return deptName;
 	}
 
-	public void setDeptNo(Integer deptNo)
+	public void setDeptName(String deptName)
 	{
-		this.deptNo = deptNo;
+		this.deptName = deptName;
 	}
 
 	public Double getSalary()
@@ -94,6 +102,6 @@ class Employee
 	@Override
 	public String toString()
 	{
-		return "Employee [id=" + id + ", name=" + name + ", deptNo=" + deptNo + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", deptName=" + deptName + ", salary=" + salary + "]";
 	}
 }
