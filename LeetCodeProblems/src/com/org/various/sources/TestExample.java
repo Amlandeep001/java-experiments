@@ -41,6 +41,20 @@ public class TestExample
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+		// Group Strings by First Character
+
+		// Input: ["apple", "banana", "avocado", "blueberry"]
+		// Output: {a=[apple, avocado], b=[banana, blueberry]}
+
+		List<String> strings = Arrays.asList("apple", "banana", "avocado", "blueberry");
+
+		Map<Character, List<String>> groupedByFirstChar = strings.stream()
+				.collect(Collectors.groupingBy(s -> s.charAt(0)));
+
+		System.out.println(groupedByFirstChar);
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		List<Integer> ints = Arrays.asList(1, 1, 2, 3, 3, 4, 4);
 
 		int second = ints.stream()

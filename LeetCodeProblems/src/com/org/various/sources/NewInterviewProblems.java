@@ -69,19 +69,6 @@ public class NewInterviewProblems
 		findRepeatedCharacters(word);
 	}
 
-	private static void manipulateString2(String input)
-	{
-		List<String> strings = Arrays.asList(input.split(""));
-
-		String result = strings.stream()
-				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-				.entrySet()
-				.stream()
-				.map(entry -> entry.getKey() + entry.getValue())
-				.collect(Collectors.joining());
-		System.out.println("Result: " + result);
-	}
-
 	private static void manipulateString(String input)
 	{
 		String result = "";
@@ -105,6 +92,19 @@ public class NewInterviewProblems
 		}
 		result += currentChar + Integer.toString(count);
 		System.out.println(result); // output: A2B2A2C1
+	}
+
+	private static void manipulateString2(String input)
+	{
+		List<String> strings = Arrays.asList(input.split(""));
+
+		String result = strings.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.stream()
+				.map(entry -> entry.getKey() + entry.getValue())
+				.collect(Collectors.joining());
+		System.out.println("Result: " + result);
 	}
 
 	private static void secondLargestNumber(List<Integer> list)
