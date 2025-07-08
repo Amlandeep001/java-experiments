@@ -5,7 +5,6 @@ public class ResolveDiamondProblem implements MyInterface1, MyInterface2
 	@Override
 	public void display()
 	{
-		// TODO Auto-generated method stub
 		// MyInterface1.super.display();
 		MyInterface2.super.display();
 	}
