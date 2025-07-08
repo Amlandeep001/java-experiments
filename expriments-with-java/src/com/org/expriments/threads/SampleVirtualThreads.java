@@ -1,7 +1,5 @@
 package com.org.expriments.threads;
 
-import java.util.concurrent.Executors;
-
 /**
  * 1. Lightweight Threads
 Virtual Threads are much lighter than traditional threads, enabling you to handle thousands or even millions of concurrent tasks without running into memory or performance issues.
@@ -39,9 +37,9 @@ Virtual Threads reduce the memory overhead of traditional threads, allowing you 
 
 public class SampleVirtualThreads
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
-		try(var executor = Executors.newThreadPerTaskExecutor(
+		/*try(var executor = Executors.newThreadPerTaskExecutor(
 				Thread.ofVirtual().name("virtual-thread-", 0).factory()))
 		{
 			for(int i = 0; i < 10; i++)
@@ -52,6 +50,11 @@ public class SampleVirtualThreads
 					System.out.println("Running task " + taskNumber + " on " + Thread.currentThread().getName());
 				});
 			}
-		}
+		}*/
+
+		Runnable task = () -> System.out.println("Running on: " + Thread.currentThread());
+
+		Thread thread = Thread.ofVirtual().start(task);
+		thread.join(); // Wait for the virtual thread to finish
 	}
 }
