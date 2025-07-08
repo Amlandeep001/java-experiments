@@ -1,5 +1,8 @@
-package com.org.expriments;
+package com.org.various.sources;
 
+/**
+ * Tech Mahindra interview in 2022
+ */
 public class SampleJava
 {
 	public static void main(String[] args)

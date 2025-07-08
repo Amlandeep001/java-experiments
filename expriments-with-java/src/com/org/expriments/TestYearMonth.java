@@ -25,7 +25,7 @@ public class TestYearMonth
 		System.out.println(bigDecimal.setScale(2, RoundingMode.CEILING));
 
 		String s = "REN�E";
-
 		System.out.println(s.replace("�", ""));
+		System.out.println(s.replaceAll("[^a-zA-Z0-9]", ""));
 	}
 }

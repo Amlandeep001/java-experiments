@@ -2,7 +2,6 @@ package com.org.expriments;
 
 public class DogName implements Cloneable
 {
-
 	private final String dname;
 
 	public DogName(String dname)
@@ -16,9 +15,10 @@ public class DogName implements Cloneable
 	}
 
 	// Overriding clone() method of Object class
+	@Override
 	public Object clone() throws CloneNotSupportedException
 	{
-		return (DogName) super.clone();
+		return super.clone();
 	}
 
 	public static void main(String[] args)
