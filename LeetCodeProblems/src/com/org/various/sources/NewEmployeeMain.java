@@ -37,7 +37,7 @@ public class NewEmployeeMain
 				.skip(3)
 				.findFirst();
 
-		System.out.println("4th Max Salaried Employee: " + optEmployee.get());
+		System.out.println("4th Max Salaried Employee: " + optEmployee.orElse(null));
 
 		Map<String, Long> deptWiseCount = employees.stream()
 				.collect(Collectors.groupingBy(NewEmployee::deptNo, Collectors.counting()));
@@ -49,7 +49,7 @@ public class NewEmployeeMain
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
 						(e1, e2) -> e1, LinkedHashMap::new));
 
-		System.out.println("Dept wise employee count in reverse order: " + orderedCountDeptWise);
+		System.out.println("Dept wise employee count in descending order: " + orderedCountDeptWise);
 
 		Map<String, Double> deptWiseMaxSalary = employees.stream()
 				.collect(Collectors.groupingBy(NewEmployee::deptNo,
@@ -59,6 +59,6 @@ public class NewEmployeeMain
 										.map(NewEmployee::salary)
 										.get())));
 
-		System.out.println("Dept wise employee max salary: " + deptWiseMaxSalary);
+		System.out.println("Dept wise max salary: " + deptWiseMaxSalary);
 	}
 }
