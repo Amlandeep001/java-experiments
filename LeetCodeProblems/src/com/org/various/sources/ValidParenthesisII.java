@@ -2,7 +2,7 @@ package com.org.various.sources;
 
 import java.util.Stack;
 
-public class ValidParenthesis
+public class ValidParenthesisII
 {
 	public static boolean isValid(String str)
 	{

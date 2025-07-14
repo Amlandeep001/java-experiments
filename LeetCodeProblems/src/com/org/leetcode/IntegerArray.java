@@ -2,7 +2,7 @@ package com.org.leetcode;
 
 import java.util.Arrays;
 
-//https://leetcode.com/problems/two-sum/submissions/1088583136/
+//
 public class IntegerArray
 {
 	public int[] twoSum(int[] nums, int target)

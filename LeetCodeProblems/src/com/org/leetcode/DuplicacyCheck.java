@@ -1,23 +1,30 @@
 package com.org.leetcode;
 
+import java.util.HashSet;
+
 //https://leetcode.com/problems/contains-duplicate-ii/description/
 
 public class DuplicacyCheck
 {
 	public boolean containsNearbyDuplicate(int[] nums, int k)
 	{
-		int length = nums.length;
+		HashSet<Integer> set = new HashSet<>();
 
-		for(int i = 0; i < length - 1; i++)
+		for(int i = 0; i < nums.length; i++)
 		{
-			for(int j = i + 1; j < length; j++)
+			if(set.contains(nums[i]))
 			{
-				if(nums[i] == nums[j] && Math.abs(i - j) <= k)
-				{
-					return true;
-				}
+				return true;
+			}
+
+			set.add(nums[i]);
+
+			if(set.size() > k)
+			{
+				set.remove(nums[i - k]);
 			}
 		}
+
 		return false;
 	}
 }

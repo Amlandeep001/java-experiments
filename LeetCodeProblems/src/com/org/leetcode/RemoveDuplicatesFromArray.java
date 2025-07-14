@@ -5,16 +5,23 @@ public class RemoveDuplicatesFromArray
 {
 	public int removeDuplicates(int[] nums)
 	{
-		int j = 0;
-		for(int i = 0; i < nums.length; i++)
+		if(nums.length == 0)
+		{
+			return 0; // Edge case: empty array
+		}
+
+		int i = 0; // Pointer for placing unique elements
+
+		for(int j = 0; j < nums.length; j++)
 		{
 			if(nums[j] != nums[i])
-			{
-				j++;
-				nums[j] = nums[i];
+			{ // Found a new unique element
+				i++;
+				nums[i] = nums[j]; // Move unique element forward
 			}
 		}
-		return j + 1;
+
+		return i + 1; // Number of unique elements (k)
 	}
 
 	public static void main(String[] args)
