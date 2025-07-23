@@ -39,6 +39,9 @@ public class ImplementingBlockingQueue
 
 		blockingQueueBounded.clear();
 		System.out.println(blockingQueueBounded);
+
+		blockingQueueBounded.offer(null);
+		System.out.println(blockingQueueBounded);
 	}
 
 }

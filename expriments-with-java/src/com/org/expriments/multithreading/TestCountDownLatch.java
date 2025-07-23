@@ -9,9 +9,9 @@ public class TestCountDownLatch
 {
 	public static void main(String[] args) throws InterruptedException
 	{
-		final int n = 3;
-		final ExecutorService executorService = Executors.newFixedThreadPool(n);
-		final CountDownLatch latch = new CountDownLatch(n);
+		final int numberOfServices = 3;
+		final ExecutorService executorService = Executors.newFixedThreadPool(numberOfServices);
+		final CountDownLatch latch = new CountDownLatch(numberOfServices);
 		executorService.submit(new DependentService(latch));
 		executorService.submit(new DependentService(latch));
 		executorService.submit(new DependentService(latch));
