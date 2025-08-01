@@ -26,11 +26,15 @@ public class NewEmployeeMain
 		employees.add(new NewEmployee(12356, "Rahim", "Sales", 72000.00));
 		employees.add(new NewEmployee(12357, "Abir", "Sales", 46000.00));
 
+		// employees having salary in between 55000 and 72000
+
 		List<NewEmployee> employeesWithSalaryRange = employees.stream()
 				.filter(employee -> employee.salary() > 55000.00 && employee.salary() < 72000.00)
 				.toList();
 
 		System.out.println(employeesWithSalaryRange);
+
+		// 4th max salaried employee
 
 		Optional<NewEmployee> optEmployee = employees.stream()
 				.sorted(Comparator.comparingDouble(NewEmployee::salary).reversed())
@@ -39,10 +43,14 @@ public class NewEmployeeMain
 
 		System.out.println("4th Max Salaried Employee: " + optEmployee.orElse(null));
 
+		// department wise employee count
+
 		Map<String, Long> deptWiseCount = employees.stream()
 				.collect(Collectors.groupingBy(NewEmployee::deptNo, Collectors.counting()));
 
 		System.out.println("Dept wise employee count: " + deptWiseCount);
+
+		// department wise employee count in descending order
 
 		Map<String, Long> orderedCountDeptWise = deptWiseCount.entrySet().stream()
 				.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
@@ -50,6 +58,8 @@ public class NewEmployeeMain
 						(e1, e2) -> e1, LinkedHashMap::new));
 
 		System.out.println("Dept wise employee count in descending order: " + orderedCountDeptWise);
+
+		// department wise max salary
 
 		Map<String, Double> deptWiseMaxSalary = employees.stream()
 				.collect(Collectors.groupingBy(NewEmployee::deptNo,

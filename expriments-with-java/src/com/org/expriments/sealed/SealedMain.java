@@ -70,7 +70,7 @@ non-sealed interface DemoInterface extends SealedInterface
 	}
 }
 
-public class Main
+public class SealedMain
 {
 	public static void main(String[] args)
 	{
