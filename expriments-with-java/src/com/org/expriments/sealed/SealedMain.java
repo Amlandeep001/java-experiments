@@ -12,7 +12,7 @@ sealed class Human permits Manish, Vartika, Anjali
 	}
 }
 
-non-sealed class Manish extends Human
+non-sealed class Manish extends Human // Manish can be extended by unknown sub-class
 {
 	@Override
 	public void printName()
